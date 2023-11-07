@@ -5,7 +5,7 @@ let bodyParser = require('body-parser');
 const app = express()
 const port = process.env.PORT
 var mongoose = require('mongoose');
-
+console.log(process.env.PORT)
 
 //const { ObjectId } = require('mongodb');
 mongoose.connect(`mongodb://admin:password@localhost:27017/?directConnection=true`,).then(db => console.log('conexion exitosa'))
