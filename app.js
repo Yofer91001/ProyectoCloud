@@ -37,8 +37,8 @@ app.post('/info', function (req, res) {
   //var resultado;
   body = req.body
   //console.log(body['nombre'])
-  asycn mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
-  await let nuevo = new person({nombre:body['nombre']}); 
+  async mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
+  let nuevo = await new person({nombre:body['nombre']}); 
   await nuevo.save()
   //console.log(resultado);
   await mongoose.connection.close();
