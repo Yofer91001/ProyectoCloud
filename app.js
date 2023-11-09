@@ -37,11 +37,11 @@ app.post('/info', function (req, res) {
   //var resultado;
   body = req.body
   //console.log(body['nombre'])
-  mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
-  let nuevo = new person({nombre:body['nombre']}); 
-  nuevo.save()
+  asycn mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
+  await let nuevo = new person({nombre:body['nombre']}); 
+  await nuevo.save()
   //console.log(resultado);
-  mongoose.connection.close();
+  await mongoose.connection.close();
   res.render('info', {tabla:'Personas'});
 });
 
