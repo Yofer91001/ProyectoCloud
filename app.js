@@ -41,7 +41,7 @@ app.post('/info', function (req, res) {
   let nuevo = new person({nombre:body['nombre']}); 
   nuevo.save()
   //console.log(resultado);
-  mongoose.close();
+  mongoose.connection.close();
   res.render('info', {tabla:'Personas'});
 });
 
