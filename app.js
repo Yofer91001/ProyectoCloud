@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 //const { ObjectId } = require('mongodb');
 
-mongoose.connect(`mongodb://3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
+mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,maxPoolSize: 5).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
 let schema = new mongoose.Schema({ nombre: String });
 let person = mongoose.model('person', schema);
 
