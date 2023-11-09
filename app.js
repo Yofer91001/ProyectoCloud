@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 //const { ObjectId } = require('mongodb');
 
-
+mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
 let schema = new mongoose.Schema({ nombre: String });
 let person = mongoose.model('person', schema);
 
@@ -37,11 +37,11 @@ app.post('/info', function (req, res) {
   //var resultado;
   body = req.body
   //console.log(body['nombre'])
-  async mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa')).catch(err => console.log('error: ', err))
-  let nuevo = await new person({nombre:body['nombre']}); 
-  await nuevo.save()
+  
+  let nuevo = new person({nombre:body['nombre']}); 
+  nuevo.save()
   //console.log(resultado);
-  await mongoose.connection.close();
+  mongoose.connection.close();
   res.render('info', {tabla:'Personas'});
 });
 
