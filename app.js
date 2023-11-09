@@ -5,7 +5,7 @@ let bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 var mongoose = require('mongoose');
-console.log(process.env.PORT)
+
 
 //const { ObjectId } = require('mongodb');
 mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa'))
@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
 app.post('/info', function (req, res) {
   //var resultado;
   body = req.body
-  console.log(body['nombre'])
+  //console.log(body['nombre'])
   let nuevo = new person({nombre:body['nombre']}); 
   nuevo.save()
   //console.log(resultado);
