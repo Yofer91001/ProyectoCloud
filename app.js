@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 console.log(process.env.PORT)
 
 //const { ObjectId } = require('mongodb');
-mongoose.connect(`mongodb://admin:password@18.117.110.85:27017/?directConnection=true`,).then(db => console.log('conexion exitosa'))
+mongoose.connect(`mongodb://admin:password@3.22.112.235:27017/?directConnection=true`,).then(db => console.log('conexion exitosa'))
     .catch(err => console.log('error: ', err))
 
 let schema = new mongoose.Schema({ nombre: String });
